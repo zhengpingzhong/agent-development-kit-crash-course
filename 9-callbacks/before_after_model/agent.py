@@ -1,7 +1,7 @@
 """
 Before and After Model Callbacks Example
 
-This example demonstrates using model callbacks 
+This example demonstrates using model callbacks
 to filter content and log model interactions.
 """
 
@@ -10,6 +10,7 @@ from datetime import datetime
 from typing import Optional
 
 from google.adk.agents import LlmAgent
+from google.adk.models.lite_llm import LiteLlm
 from google.adk.agents.callback_context import CallbackContext
 from google.adk.models import LlmRequest, LlmResponse
 from google.genai import types
@@ -147,7 +148,7 @@ def after_model_callback(
 # Create the Agent
 root_agent = LlmAgent(
     name="content_filter_agent",
-    model="gemini-2.0-flash",
+    model=LiteLlm(model="zai/glm-5.1"),
     description="An agent that demonstrates model callbacks for content filtering and logging",
     instruction="""
     You are a helpful assistant.

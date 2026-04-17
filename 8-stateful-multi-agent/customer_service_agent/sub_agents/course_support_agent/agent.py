@@ -1,9 +1,10 @@
 from google.adk.agents import Agent
+from google.adk.models.lite_llm import LiteLlm
 
 # Create the course support agent
 course_support_agent = Agent(
     name="course_support",
-    model="gemini-2.0-flash",
+    model=LiteLlm(model="zai/glm-5.1"),
     description="Course support agent for the AI Marketing Platform course",
     instruction="""
     You are the course support agent for the Fullstack AI Marketing Platform course.

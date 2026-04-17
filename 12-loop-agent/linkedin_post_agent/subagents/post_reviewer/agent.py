@@ -5,16 +5,17 @@ This agent reviews LinkedIn posts for quality and provides feedback.
 """
 
 from google.adk.agents.llm_agent import LlmAgent
+from google.adk.models.lite_llm import LiteLlm
 
 from .tools import count_characters, exit_loop
 
 # Constants
-GEMINI_MODEL = "gemini-2.0-flash"
+MODEL = LiteLlm(model="zai/glm-5.1")
 
 # Define the Post Reviewer Agent
 post_reviewer = LlmAgent(
     name="PostReviewer",
-    model=GEMINI_MODEL,
+    model=MODEL,
     instruction="""You are a LinkedIn Post Quality Reviewer.
 
     Your task is to evaluate the quality of a LinkedIn post about Agent Development Kit (ADK).

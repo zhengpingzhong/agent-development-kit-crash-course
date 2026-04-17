@@ -1,4 +1,5 @@
 from google.adk.agents import Agent
+from google.adk.models.lite_llm import LiteLlm
 
 from .sub_agents.course_support_agent.agent import course_support_agent
 from .sub_agents.order_agent.agent import order_agent
@@ -8,7 +9,7 @@ from .sub_agents.sales_agent.agent import sales_agent
 # Create the root customer service agent
 customer_service_agent = Agent(
     name="customer_service",
-    model="gemini-2.0-flash",
+    model=LiteLlm(model="zai/glm-5.1"),
     description="Customer service agent for AI Developer Accelerator community",
     instruction="""
     You are the primary customer service agent for the AI Developer Accelerator community.

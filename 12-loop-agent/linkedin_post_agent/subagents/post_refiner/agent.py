@@ -5,14 +5,15 @@ This agent refines LinkedIn posts based on review feedback.
 """
 
 from google.adk.agents.llm_agent import LlmAgent
+from google.adk.models.lite_llm import LiteLlm
 
 # Constants
-GEMINI_MODEL = "gemini-2.0-flash"
+MODEL = LiteLlm(model="zai/glm-5.1")
 
 # Define the Post Refiner Agent
 post_refiner = LlmAgent(
     name="PostRefinerAgent",
-    model=GEMINI_MODEL,
+    model=MODEL,
     instruction="""You are a LinkedIn Post Refiner.
 
     Your task is to refine a LinkedIn post based on review feedback.

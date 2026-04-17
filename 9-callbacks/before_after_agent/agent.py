@@ -1,7 +1,7 @@
 """
 Before and After Agent Callbacks Example
 
-This example demonstrates how to use both before_agent_callback and after_agent_callback 
+This example demonstrates how to use both before_agent_callback and after_agent_callback
 for logging purposes.
 """
 
@@ -9,6 +9,7 @@ from datetime import datetime
 from typing import Optional
 
 from google.adk.agents import LlmAgent
+from google.adk.models.lite_llm import LiteLlm
 from google.adk.agents.callback_context import CallbackContext
 from google.genai import types
 
@@ -91,7 +92,7 @@ def after_agent_callback(callback_context: CallbackContext) -> Optional[types.Co
 # Create the Agent
 root_agent = LlmAgent(
     name="before_after_agent",
-    model="gemini-2.0-flash",
+    model=LiteLlm(model="zai/glm-5.1"),
     description="A basic agent that demonstrates before and after agent callbacks",
     instruction="""
     You are a friendly greeting agent. Your name is {agent_name}.

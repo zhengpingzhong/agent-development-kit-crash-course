@@ -1,4 +1,5 @@
 from google.adk.agents import Agent
+from google.adk.models.lite_llm import LiteLlm
 from google.adk.tools.agent_tool import AgentTool
 
 from .sub_agents.funny_nerd.agent import funny_nerd
@@ -8,7 +9,7 @@ from .tools.tools import get_current_time
 
 root_agent = Agent(
     name="manager",
-    model="gemini-2.0-flash",
+    model=LiteLlm(model="zai/glm-5.1"),
     description="Manager agent",
     instruction="""
     You are a manager agent that is responsible for overseeing the work of the other agents.

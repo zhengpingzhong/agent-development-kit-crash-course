@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from google.adk.agents import Agent
+from google.adk.models.lite_llm import LiteLlm
 from google.adk.tools.tool_context import ToolContext
 
 
@@ -71,7 +72,7 @@ def refund_course(tool_context: ToolContext) -> dict:
 # Create the order agent
 order_agent = Agent(
     name="order_agent",
-    model="gemini-2.0-flash",
+    model=LiteLlm(model="zai/glm-5.1"),
     description="Order agent for viewing purchase history and processing refunds",
     instruction="""
     You are the order agent for the AI Developer Accelerator community.

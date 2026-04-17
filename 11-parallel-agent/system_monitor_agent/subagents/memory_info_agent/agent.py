@@ -5,16 +5,17 @@ This agent is responsible for gathering and analyzing memory information.
 """
 
 from google.adk.agents import LlmAgent
+from google.adk.models.lite_llm import LiteLlm
 
 from .tools import get_memory_info
 
 # --- Constants ---
-GEMINI_MODEL = "gemini-2.0-flash"
+MODEL = LiteLlm(model="zai/glm-5.1")
 
 # Memory Information Agent
 memory_info_agent = LlmAgent(
     name="MemoryInfoAgent",
-    model=GEMINI_MODEL,
+    model=MODEL,
     instruction="""You are a Memory Information Agent.
     
     When asked for system information, you should:

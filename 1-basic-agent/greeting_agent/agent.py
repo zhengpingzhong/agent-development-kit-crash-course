@@ -1,9 +1,10 @@
 from google.adk.agents import Agent
+from google.adk.models.lite_llm import LiteLlm
 
 root_agent = Agent(
     name="greeting_agent",
     # https://ai.google.dev/gemini-api/docs/models
-    model="gemini-2.0-flash",
+    model=LiteLlm(model="zai/glm-5.1"),  # LiteLLM model string format
     description="Greeting agent",
     instruction="""
     You are a helpful assistant that greets the user. 

@@ -6,14 +6,15 @@ based on the lead validation and scoring results.
 """
 
 from google.adk.agents import LlmAgent
+from google.adk.models.lite_llm import LiteLlm
 
 # --- Constants ---
-GEMINI_MODEL = "gemini-2.0-flash"
+MODEL = LiteLlm(model="zai/glm-5.1")
 
 # Create the recommender agent
 action_recommender_agent = LlmAgent(
     name="ActionRecommenderAgent",
-    model=GEMINI_MODEL,
+    model=MODEL,
     instruction="""You are an Action Recommendation AI.
     
     Based on the lead information and scoring:

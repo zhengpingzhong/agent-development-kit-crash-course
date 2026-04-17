@@ -8,6 +8,7 @@ import copy
 from typing import Any, Dict, Optional
 
 from google.adk.agents import LlmAgent
+from google.adk.models.lite_llm import LiteLlm
 from google.adk.tools.base_tool import BaseTool
 from google.adk.tools.tool_context import ToolContext
 
@@ -111,7 +112,7 @@ def after_tool_callback(
 # Create the Agent
 root_agent = LlmAgent(
     name="tool_callback_agent",
-    model="gemini-2.0-flash",
+    model=LiteLlm(model="zai/glm-5.1"),
     description="An agent that demonstrates tool callbacks by looking up capital cities",
     instruction="""
     You are a helpful geography assistant.

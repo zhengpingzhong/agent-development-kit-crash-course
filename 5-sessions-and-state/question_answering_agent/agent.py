@@ -1,9 +1,10 @@
 from google.adk.agents import Agent
+from google.adk.models.lite_llm import LiteLlm
 
 # Create the root agent
 question_answering_agent = Agent(
     name="question_answering_agent",
-    model="gemini-2.0-flash",
+    model=LiteLlm(model="zai/glm-5.1"),
     description="Question answering agent",
     instruction="""
     You are a helpful assistant that answers questions about the user's preferences.

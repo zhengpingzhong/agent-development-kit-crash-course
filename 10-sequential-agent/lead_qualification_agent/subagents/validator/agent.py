@@ -6,14 +6,15 @@ for qualification.
 """
 
 from google.adk.agents import LlmAgent
+from google.adk.models.lite_llm import LiteLlm
 
 # --- Constants ---
-GEMINI_MODEL = "gemini-2.0-flash"
+MODEL = LiteLlm(model="zai/glm-5.1")
 
 # Create the validator agent
 lead_validator_agent = LlmAgent(
     name="LeadValidatorAgent",
-    model=GEMINI_MODEL,
+    model=MODEL,
     instruction="""You are a Lead Validation AI.
     
     Examine the lead information provided by the user and determine if it's complete enough for qualification.

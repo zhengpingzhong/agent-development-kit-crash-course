@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from google.adk.agents import Agent
+from google.adk.models.lite_llm import LiteLlm
 from google.adk.tools.tool_context import ToolContext
 
 
@@ -58,7 +59,7 @@ def purchase_course(tool_context: ToolContext) -> dict:
 # Create the sales agent
 sales_agent = Agent(
     name="sales_agent",
-    model="gemini-2.0-flash",
+    model=LiteLlm(model="zai/glm-5.1"),
     description="Sales agent for the AI Marketing Platform course",
     instruction="""
     You are a sales agent for the AI Developer Accelerator community, specifically handling sales

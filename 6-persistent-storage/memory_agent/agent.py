@@ -1,4 +1,5 @@
 from google.adk.agents import Agent
+from google.adk.models.lite_llm import LiteLlm
 from google.adk.tools.tool_context import ToolContext
 
 
@@ -155,7 +156,7 @@ def update_user_name(name: str, tool_context: ToolContext) -> dict:
 # Create a simple persistent agent
 memory_agent = Agent(
     name="memory_agent",
-    model="gemini-2.0-flash",
+    model=LiteLlm(model="zai/glm-5.1"),
     description="A smart reminder agent with persistent memory",
     instruction="""
     You are a friendly reminder assistant that remembers users across conversations.
